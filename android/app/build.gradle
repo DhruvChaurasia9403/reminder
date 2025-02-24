@@ -1,0 +1,57 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "com.google.gms.google-services"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "com.example.remind"
+    compileSdkVersion 34  // Ensure latest compile SDK
+    ndkVersion "25.1.8937393"  // Define NDK explicitly
+
+    defaultConfig {
+        applicationId "com.example.remind"
+        minSdkVersion 23  // Firebase requires at least API 23
+        targetSdkVersion 34  // Ensure compatibility with latest devices
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += ["-Xopt-in=kotlin.RequiresOptIn", "-Xjvm-default=all"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true  // Enables code shrinking
+            shrinkResources true  // Removes unused resources (must have minifyEnabled)
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false  // No shrinking in debug mode
+        }
+    }
+}
+
+flutter {
+    source "../.."
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:33.7.0')
+    implementation 'com.google.android.gms:play-services-base:18.5.0'
+    implementation 'com.google.android.gms:play-services-auth:21.3.0'
+    implementation 'com.google.firebase:firebase-analytics'
+}
+
+// Fix for Kotlin metadata compatibility issue
+gradle.ext.kotlin_mpp_enable_compatibility_metadata_variant = false
