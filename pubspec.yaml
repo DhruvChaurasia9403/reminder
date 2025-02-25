@@ -41,10 +41,13 @@ dependencies:
   google_sign_in:
   slide_to_act:
   get:
+  timezone:
   flutter_svg:
   image_picker:
   http:
   flutter_local_notifications:
+  android_intent_plus:
+  permission_handler:
 
 dev_dependencies:
   flutter_test:
@@ -70,7 +73,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/Watch.svg
+    - assets/watch.svg
     - assets/gforGoogle.svg
   #   - images/a_dot_ham.jpeg
 
