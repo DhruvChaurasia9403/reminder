@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:remind/Pages/Home/Tabs/Home.dart';
-
-import 'Tabs/Profile.dart';
-import 'Tabs/settings.dart';
+import 'package:remind/Pages/Home/Tabs/Profile.dart';
+import 'package:remind/Pages/Home/Tabs/Settings.dart'; // Ensure correct import
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,8 +12,8 @@ class HomePage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Home Page'),
-          bottom: TabBar(
+          title: const Text('Home Page'),
+          bottom: const TabBar(
             tabs: [
               Tab(icon: Icon(Icons.home), text: 'Home'),
               Tab(icon: Icon(Icons.person), text: 'Profile'),
@@ -22,11 +21,11 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             HomeTab(),
             ProfileTab(),
-            settingsTab(),
+            SettingsTab(),
           ],
         ),
       ),

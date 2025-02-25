@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:remind/Splash/Splashpage.dart';
 
-void main() async {
+import 'Utility/Images.dart';
+
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  const AndroidInitializationSettings initializationSettingsAndroid = AndroidInitializationSettings('@drawable/watch');
+  final InitializationSettings initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
+
+  await flutterLocalNotificationsPlugin.initialize(
+    initializationSettings,
+      onDidReceiveNotificationResponse: (NotificationResponse notificationResponse) async {
+        final String? payload = notificationResponse.payload;
+        if (payload != null) {
+          debugPrint('Notification Payload: $payload');
+        }
+      }
+  );
+
   runApp(const MyApp());
 }
 
