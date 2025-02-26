@@ -25,7 +25,6 @@ A **Flutter-based Reminder App** that allows users to schedule and receive notif
 |-------------------------|--------------------------|------------------------------|
 | ![Home](assets/ssA.png) | ![Popup](assets/ssP.png) | ![Scheduled](assets/ssS.png) |
 
-📌 *Ensure that your images are inside the `assets` folder in the GitHub repository for them to be visible.*
 
 ---
 
