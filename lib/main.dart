@@ -4,11 +4,16 @@ import 'package:get/get.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:remind/Splash/Splashpage.dart';
-
+import 'Controller/NotificationController.dart';
 import 'Utility/Images.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
 FlutterLocalNotificationsPlugin();
+@pragma('vm:entry-point')
+void notificationTapBackground(NotificationResponse response) {
+  debugPrint('🔙 Notification tapped in background: ${response.payload}');
+}
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +22,7 @@ Future<void> main() async {
 
   // Android notification settings
   const AndroidInitializationSettings initializationSettingsAndroid =
-  AndroidInitializationSettings(AssetsImage.NotificationSvg);
+  AndroidInitializationSettings(AssetsImage.NotificationPng);
 
   final InitializationSettings initializationSettings =
   InitializationSettings(android: initializationSettingsAndroid);
@@ -25,9 +30,11 @@ Future<void> main() async {
   await flutterLocalNotificationsPlugin.initialize(
     initializationSettings,
     onDidReceiveNotificationResponse: (NotificationResponse response) async {
-      debugPrint('Notification Payload: ${response.payload}');
+      debugPrint('🔔 Notification Payload: ${response.payload}');
     },
+    onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
   );
+
 
   runApp(const MyApp());
 }
