@@ -29,10 +29,10 @@ class ProfileTab extends StatelessWidget {
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
               await GoogleSignIn().signOut();
-              Get.to(()=>AuthLoginForm());
+              Get.offAll(() => AuthLoginForm());
             },
             child: Text('Log Out'),
-          ),
+          )
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:remind/Controller/NotificationController.dart';
+import 'package:remind/main.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({super.key});
@@ -10,7 +11,7 @@ class SettingsTab extends StatefulWidget {
 
 class _SettingsTabState extends State<SettingsTab> {
   final TextEditingController _timeController = TextEditingController();
-  final NotificationController _notificationController = NotificationController();
+  final NotificationController _notificationController = NotificationController(flutterLocalNotificationsPlugin);
 
   @override
   Widget build(BuildContext context) {

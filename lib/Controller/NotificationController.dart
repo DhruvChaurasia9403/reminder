@@ -5,10 +5,11 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
-import '../main.dart';
 
 class NotificationController {
-  NotificationController() {
+  final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+
+  NotificationController(this.flutterLocalNotificationsPlugin) {
     tz.initializeTimeZones();
     checkPermissions();
   }
@@ -46,7 +47,6 @@ class NotificationController {
       channelDescription: 'Channel for reminder notifications',
       importance: Importance.max,
       priority: Priority.high,
-      ticker: 'ticker',
       playSound: true,
     );
 
@@ -66,7 +66,6 @@ class NotificationController {
 
     debugPrint("✅ Notification scheduled successfully in $seconds seconds.");
   }
-
 
   Future<void> showInstantNotification() async {
     await flutterLocalNotificationsPlugin.show(

@@ -1,16 +1,37 @@
-# remind
+# 🕒 Remind App
 
-A new Flutter project.
+A **Flutter-based Reminder App** that allows users to schedule and receive notifications for important tasks.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📌 Features
+✅ Schedule notifications at a specific time  
+✅ Instant notifications  
+✅ Background notification handling  
+✅ Permissions handling (Android 13+ supported)  
+✅ Uses `flutter_local_notifications` and `timezone` packages
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ## 🎥 Demo Video
+![Demo](assets/video.mp4)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+---
+
+## 🖼️ Screenshots
+
+| Home Screen             | Notification Popup       | Scheduled Notification       |
+|-------------------------|--------------------------|------------------------------|
+| ![Home](assets/ssA.png) | ![Popup](assets/ssP.png) | ![Scheduled](assets/ssS.png) |
+
+📌 *Ensure that your images are inside the `assets` folder in the GitHub repository for them to be visible.*
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/DhruvChaurasia9403/remind-app.git
+cd remind-app
